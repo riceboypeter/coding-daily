@@ -1,5 +1,5 @@
 '''
-Friday 23rd, 2024
+August 23rd, 2024
 Finished in about 40 minutes with distractions
 
 Implement a stack that has the following methods:
@@ -20,7 +20,7 @@ class Stack:
     def __init__(self):
         self.head = Node("head")
         self.size = 0
-        # use a pseudo-stack to store the max value(s)
+        # use a list like a stack to store the max value(s)
         self.maxval = []
 
     def __str__(self):
@@ -34,11 +34,8 @@ class Stack:
     def getSize(self):
         return self.size
     
-    def isEmpty(self):
-        return self.size == 0
-    
     def peek(self):
-        if self.isEmpty():
+        if self.getSize() == 0:
             return None
         return self.head.next.value
 
@@ -54,7 +51,7 @@ class Stack:
         self.size += 1
         
     def pop(self):
-        if self.isEmpty():
+        if self.getSize() == 0:
             return None
         remove = self.head.next
         self.head.next = remove.next
